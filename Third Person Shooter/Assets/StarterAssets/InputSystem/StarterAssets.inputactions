@@ -44,6 +44,22 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Shoot",
+                    "type": "PassThrough",
+                    "id": "0c150220-b7eb-4ca8-bd07-5b43209dee1a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Mouse",
+                    "type": "Value",
+                    "id": "5b51f222-0e9a-4885-a491-04645126a828",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -231,6 +247,28 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a450cf2b-9475-4d48-bd40-3c224f446169",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f161b8ff-811f-40c8-8304-e5e5f47abff6",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
