@@ -225,36 +225,20 @@ namespace StarterAssets
 			// update animator if using character
 			if (_hasAnimator)
 			{
-				Debug.Log(_input.move);
 				_animator.SetFloat(_animIDSpeed, _animationBlend);
 				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
 
-				if (_input.move.x == 1.0f && _input.move.y == 0.0f)
-				{
-					_animator.SetFloat(_animIDPosX, _input.move[0]);
-					_animator.SetFloat(_animIDPosY, _input.move[1]);
+
+				if(_input.sprint == true)
+                {
+					_animator.SetFloat(_animIDPosX, _input.move.x * 2);
+					_animator.SetFloat(_animIDPosY, _input.move.y * 2);
                 }
-
-				if (_input.move.x == -1.0f && _input.move.y == 0.0f)
-				{
-					_animator.SetFloat(_animIDPosX, _input.move[0]);
-					_animator.SetFloat(_animIDPosY, _input.move[1]);
+                else
+                {
+					_animator.SetFloat(_animIDPosX, _input.move.x);
+					_animator.SetFloat(_animIDPosY, _input.move.y);
 				}
-
-
-				if (_input.move.x == 0.0f && _input.move.y == 1.0f)
-				{
-					_animator.SetFloat(_animIDPosX, _input.move[0]);
-					_animator.SetFloat(_animIDPosY, _input.move[1]);
-				}
-
-
-				if (_input.move.x == 0.0f && _input.move.y == -1.0f)
-				{
-					_animator.SetFloat(_animIDPosX, _input.move[0]);
-					_animator.SetFloat(_animIDPosY, _input.move[1]);
-				}
-
 			}
 		}
 
