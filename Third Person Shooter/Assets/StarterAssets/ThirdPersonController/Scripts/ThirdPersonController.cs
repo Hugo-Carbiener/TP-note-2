@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -70,6 +71,7 @@ namespace StarterAssets
 		private float _rotationVelocity;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
+		private Transform target;
 
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
@@ -121,6 +123,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			AimView();
 		}
 
 		private void LateUpdate()
@@ -328,6 +331,12 @@ namespace StarterAssets
 			
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		private void AimView()
+        {
+			Ray aim = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+			transform.forward = aim.direction;
 		}
 	}
 }
