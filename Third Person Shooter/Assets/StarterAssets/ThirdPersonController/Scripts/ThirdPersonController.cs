@@ -81,8 +81,9 @@ namespace StarterAssets
 		private int _animIDJump;
 		private int _animIDFreeFall;
 		private int _animIDMotionSpeed;
-
-		private Animator _animator;
+        private int _animIDPosX;
+        private int _animIDPosY;
+        private Animator _animator;
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
@@ -134,6 +135,8 @@ namespace StarterAssets
 			_animIDJump = Animator.StringToHash("Jump");
 			_animIDFreeFall = Animator.StringToHash("FreeFall");
 			_animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+			_animIDPosX = Animator.StringToHash("PosX");
+			_animIDPosY = Animator.StringToHash("PosY");
 		}
 
 		private void GroundedCheck()
@@ -224,6 +227,33 @@ namespace StarterAssets
 			{
 				_animator.SetFloat(_animIDSpeed, _animationBlend);
 				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+
+				if (_input.move.x == 1.0f && _input.move.y == 0.0f)
+				{
+					_animator.SetFloat(_animIDPosX, _input.move[0]);
+					_animator.SetFloat(_animIDPosY, _input.move[1]);
+                }
+
+				if (_input.move.x == -1.0f && _input.move.y == 0.0f)
+				{
+					_animator.SetFloat(_animIDPosX, _input.move[0]);
+					_animator.SetFloat(_animIDPosY, _input.move[1]);
+				}
+
+
+				if (_input.move.x == 0.0f && _input.move.y == 1.0f)
+				{
+					_animator.SetFloat(_animIDPosX, _input.move[0]);
+					_animator.SetFloat(_animIDPosY, _input.move[1]);
+				}
+
+
+				if (_input.move.x == 0.0f && _input.move.y == -1.0f)
+				{
+					_animator.SetFloat(_animIDPosX, _input.move[0]);
+					_animator.SetFloat(_animIDPosY, _input.move[1]);
+				}
+
 			}
 		}
 
